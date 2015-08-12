@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tech: MyString
+  software: MyString
+  database: MyString
+  frameworks: MyString
+  cloud_service: MyString
+
+two:
+  tech: MyString
+  software: MyString
+  database: MyString
+  frameworks: MyString
+  cloud_service: MyString
