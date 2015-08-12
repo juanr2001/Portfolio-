@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization: MyString
+  role: MyString
+  cause: MyString
+  date_start: MyString
+  date_end: 1
+  description: MyText
+
+two:
+  organization: MyString
+  role: MyString
+  cause: MyString
+  date_start: MyString
+  date_end: 1
+  description: MyText
