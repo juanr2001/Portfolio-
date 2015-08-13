@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-    <div class="field">
+  <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
   </div>
@@ -12,6 +12,7 @@
     <%= f.label :middle_name %><br />
     <%= f.text_field :middle_name %>
   </div>
+
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
@@ -20,11 +21,6 @@
   <div class="field">
     <%= f.label :second_last_name %><br />
     <%= f.text_field :second_last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
   </div>
 
   <div class="field">
@@ -40,6 +36,36 @@
 <div class="field">
     <%= f.label :day %><br />
     <%= f.text_field :day %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
 
   <div class="field">

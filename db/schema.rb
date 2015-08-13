@@ -11,43 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812215659) do
+ActiveRecord::Schema.define(version: 20150813194616) do
 
-  create_table "about_mes", force: :cascade do |t|
+  create_table "about_headers", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "about_mes", force: :cascade do |t|
     t.text     "content"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "about_header_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
   create_table "cloud_services", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "other_skill_header_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "competencies", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "other_relevant_info_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "contact_mes", force: :cascade do |t|
+  create_table "contact_headers", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "databases", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "other_skill_header_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "educations", force: :cascade do |t|
@@ -55,12 +66,36 @@ ActiveRecord::Schema.define(version: 20150812215659) do
     t.string   "school_name"
     t.string   "state"
     t.string   "country"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "other_relevant_info_id"
+    t.integer  "resume_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "frameworks", force: :cascade do |t|
     t.string   "name"
+    t.integer  "other_skill_header_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "job_experiences", force: :cascade do |t|
+    t.string   "job_title"
+    t.string   "company"
+    t.string   "location"
+    t.text     "responsibility"
+    t.string   "data_in"
+    t.string   "date_out"
+    t.integer  "resume_id"
+    t.integer  "job_header_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "job_headers", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,8 +103,9 @@ ActiveRecord::Schema.define(version: 20150812215659) do
   create_table "languages", force: :cascade do |t|
     t.string   "name"
     t.string   "proficiency"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "other_relevant_info_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "mind_processes", force: :cascade do |t|
@@ -78,16 +114,18 @@ ActiveRecord::Schema.define(version: 20150812215659) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "other_relevant_skills", force: :cascade do |t|
+  create_table "other_relevant_infos", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
-    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "other_skills", force: :cascade do |t|
-    t.string   "name"
+  create_table "other_skill_headers", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,28 +133,42 @@ ActiveRecord::Schema.define(version: 20150812215659) do
   create_table "profiles", force: :cascade do |t|
     t.string   "job_title"
     t.text     "quote"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "programming_languages", force: :cascade do |t|
     t.string   "name"
     t.integer  "knowledge"
+    t.integer  "skill_header_id"
+    t.integer  "resume_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "rails_headers", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "rails_projects", force: :cascade do |t|
-    t.string   "title"
-    t.string   "subtitle"
     t.string   "project_title"
     t.string   "project_content"
     t.string   "github_link"
-    t.string   "linkedin_link"
+    t.string   "website_link"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "rails_header_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
@@ -132,27 +184,43 @@ ActiveRecord::Schema.define(version: 20150812215659) do
 
   create_table "results", force: :cascade do |t|
     t.string   "name"
+    t.integer  "other_relevant_info_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string   "about"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ruby_headers", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ruby_projects", force: :cascade do |t|
     t.string   "title"
-    t.string   "subtitle"
-    t.string   "project_title"
-    t.string   "project_content"
-    t.string   "project_vision"
+    t.string   "content"
+    t.string   "vision"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "ruby_header_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  create_table "skills", force: :cascade do |t|
+  create_table "skill_headers", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -166,20 +234,23 @@ ActiveRecord::Schema.define(version: 20150812215659) do
 
   create_table "software_experiences", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "other_skill_header_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "tech_experiences", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "other_skill_header_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "trainings", force: :cascade do |t|
     t.string   "dicipline"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "other_relevant_info_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -187,10 +258,15 @@ ActiveRecord::Schema.define(version: 20150812215659) do
     t.string   "middle_name"
     t.string   "last_name"
     t.string   "second_last_name"
-    t.string   "username"
     t.integer  "year"
     t.string   "month"
     t.integer  "day"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "phone"
+    t.string   "username"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -215,8 +291,9 @@ ActiveRecord::Schema.define(version: 20150812215659) do
     t.string   "date_start"
     t.integer  "date_end"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "other_relevant_info_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

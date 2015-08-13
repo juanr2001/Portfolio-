@@ -3,6 +3,8 @@ class CreateProfiles < ActiveRecord::Migration
     create_table :profiles do |t|
       t.string :job_title
       t.text :quote
+      t.attachment :photo
+      t.integer :user_id
 
       t.timestamps null: false
     end
