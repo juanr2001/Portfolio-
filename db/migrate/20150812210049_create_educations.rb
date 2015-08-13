@@ -5,6 +5,8 @@ class CreateEducations < ActiveRecord::Migration
       t.string :school_name
       t.string :state
       t.string :country
+      t.integer :other_relevant_info_id
+      t.integer :resume_id
 
       t.timestamps null: false
     end

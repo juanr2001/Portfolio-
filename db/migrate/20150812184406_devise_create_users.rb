@@ -8,10 +8,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :middle_name
       t.string :last_name
       t.string :second_last_name
-      t.string :username
       t.integer :year
       t.string :month
       t.integer :day
+      t.string :street
+      t.string :city
+      t.string :state
+      t.string :zip_code
+      t.string :phone
+      t.string :username
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 

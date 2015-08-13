@@ -7,6 +7,7 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string :date_start
       t.integer :date_end
       t.text :description
+      t.integer :other_relevant_info_id
 
       t.timestamps null: false
     end
