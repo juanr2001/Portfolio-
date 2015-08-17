@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+
+    <% @about_headers.each do |about_header| %>
+        <h2><%= best_in_place about_header, :title %></h2>
+        <h3><%= best_in_place about_header, :subtitle %></h3>
+        <p><%= link_to 'Destroy', about_header, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+
+<br>
+
+<%= link_to 'New About header', new_about_header_path %>
