@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= best_in_place @about_header, :title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= best_in_place @about_header, :subtitle %>
+</p>
+
+<%= link_to 'Index', about_headers_path(@about_header) %> |
+<%= link_to 'Back', about_headers_path %>
