@@ -1,0 +1,8 @@
+<p><%= notice %></p>
+<p>
+    <strong>Content: </strong>
+    <%= best_in_place @about_me, :content%>
+</p>
+
+<%= link_to 'Index', about_mes_path(@about_me) %>
+<%= link_to 'Back', about_mes_path %>

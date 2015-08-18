@@ -1,0 +1,6 @@
+<%@about_mes.each do | about_me| %>
+<h2><%= best_in_place about_me, :content %></h2>
+<p><%= link_to 'Destroy', about_me, method: :delete, data: {confirm: "Are you sure? "}%></p>
+<%end%>
+
+<%=link_to "New About Me", new_about_me_path%>
