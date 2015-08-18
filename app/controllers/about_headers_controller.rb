@@ -1,4 +1,5 @@
 class AboutHeadersController < ApplicationController
+
   before_action :set_about_header, only: [:show, :edit, :update, :destroy]
   #best_in_line expext
   respond_to :html, :json
@@ -42,6 +43,7 @@ class AboutHeadersController < ApplicationController
   def update
     @about_header = AboutHeader.find(params[:id])
     @about_header.update(about_header_params)
+
     respond_with @about_header
   end
 
